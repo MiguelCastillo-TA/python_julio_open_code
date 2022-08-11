@@ -1,17 +1,24 @@
+from classes.user import User
+
 allUsers = [
-    {
-        "name": "Miguel Castillo",
-        "email": "miguel@email.com"
-    },
-    {
-        "name": "Ana Rodriguez",
-        "email": "ana@email.com"
-    },
-    {
-        "name":  "Richard Torres",
-        "email": "richard@email.com"
-    }
+    User(1000),
+    User(2000),
+    User(3000)
 ]
+# allUsers = [
+#     {
+#         "name": "Miguel Castillo",
+#         "email": "miguel@email.com"
+#     },
+#     {
+#         "name": "Ana Rodriguez",
+#         "email": "ana@email.com"
+#     },
+#     {
+#         "name":  "Richard Torres",
+#         "email": "richard@email.com"
+#     }
+# ]
 
 flag = True
 while(flag):
