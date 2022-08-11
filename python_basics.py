@@ -14,7 +14,6 @@ allUsers = [
 ]
 
 flag = True
-
 while(flag):
     print(f"WELCOME! PLEASE CHOOSE AN OPTION")
     print("*"*30)
