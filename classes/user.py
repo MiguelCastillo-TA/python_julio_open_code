@@ -19,21 +19,35 @@ class User:
         self.withdraw(amount)
         print('Money has been transfered...')
 
-if __name__ == '__main__':
-    user1 = User()
-
-    user2 = User(2000)
-
-    user3 = User(5000)
+user1 = User(1000)
+user1.withdraw(200)
+user1.deposit(1000)
 
 
-    user2.transfer_money(user1, 300)
+user2 = User(12000)
+print(user1.balance)
 
-    user2.transfer_money(user3, 1000)
+user1.transfer_money(user2, 800)
+print(user1.balance)
+print(user2.balance)
 
-    user1.show_balance()
-    user2.show_balance()
-    user3.show_balance()
+
+
+# if __name__ == '__main__':
+#     user1 = User()
+
+#     user2 = User(2000)
+
+#     user3 = User(5000)
+
+
+#     user2.transfer_money(user1, 300)
+
+#     user2.transfer_money(user3, 1000)
+
+#     user1.show_balance()
+#     user2.show_balance()
+#     user3.show_balance()
 
 
 
