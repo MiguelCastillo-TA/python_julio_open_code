@@ -1,6 +1,7 @@
-from classes import Dog, Ninja, Mascota
+from classes import Ninja,Mascota, Dog
+# from classes.Mascota import Mascota, Dog
 
-mascota1 = Dog("bob", "gato", "cat nip")
+mascota1 = Dog("bob", "gato", "cat nip", "tan")
 print(mascota1)
 mascota2 = Mascota("mascota", "gato", "cat nip")
 print(mascota2)

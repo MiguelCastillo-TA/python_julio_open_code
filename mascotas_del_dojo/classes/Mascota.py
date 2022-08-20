@@ -24,18 +24,41 @@ class Mascota:
         print('meow')
     
     def __repr__(self):
-        return f'***** \nName: {self.name}\nSalud:{self.salud}\nEnergia:{self.energia} \n*****'
+        return f'***** \nName: {self.name}\nSalud:{self.salud}\nEnergia:{self.energia}\n*****'
 
 class Dog(Mascota):
-    def __init__(self, name, tipo, golosinas):
+    def __init__(self, name, tipo, golosinas, color):
         super().__init__(name, tipo, golosinas)
+        self.color = color
+
+    def __repr__(self):
+        return f'***** \nName: {self.name}\nSalud:{self.salud}\nEnergia:{self.energia} \nColor: {self.color}\n*****'
 
     def sonido(self):
         print('BARK')
 
 
+class Cat(Mascota):
+    def __init__(self, name, tipo, golosinas, stripes):
+        super().__init__(name, tipo, golosinas)
+        self.stripes = stripes
+
+    def attack(self):
+        print('cat is attacking')
+
+    def sonido(self):
+        print('MEOW')
+
 if __name__ == "__main__":
     print('MASCOTA MAIN')
-    dog1 = Dog("dog", "dog", "dog treats")
-    dog1.sonido()
+    mascota1 = Mascota("cat", "cat", "cat treats")
+    mascota1.sonido()
+    # print(mascota1)
+    dog1 = Dog("dog", "dog", "dog treats", "tan")
+
+
+    cat1 = Cat("cat", "cat", "cat treats", "yellow stripes")
+    cat1.attack()
+    # print(dog1)
+
 
