@@ -1,0 +1,10 @@
+.content-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.box{
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
