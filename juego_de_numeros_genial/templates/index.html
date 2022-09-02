@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <style>
+        h1, p{
+            text-align: center;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 10%;
+            margin: 0 auto;
+        }
+        .success{
+            color: green;
+        }
+        .error{
+            margin: 0 auto;
+            height: 100px;
+            width: 100px;
+            border: 2px solid #000;
+            background-color: red;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Great Number Game!</h1>
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess!</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{category}}">
+                    <p>{{message}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    {% if session['is_playing'] == True %}
+        <form action="/guess" method="POST">
+            <input type="number" name="guess">
+            <button>Submit</button>
+        </form>
+    {% else %}
+    <form action="/restart" method="POST">
+        <button>Play Again</button>
+    </form>
+    {% endif %}
+</body>
+</html>

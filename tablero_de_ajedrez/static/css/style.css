@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+}
+.box{
+    height: 100px;
+    width: 100px;
+}
+.red{
+    background-color: red;
+}
+.black{
+    background-color: black;
+}
+table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+/* .row{
+    display: flex;
+} */

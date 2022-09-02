@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Chess board</title>
+</head>
+<body>
+    <h1>Checker Board</h1>
+    <table>
+        <tbody>
+            {% for x in range(0,8) %}
+            <tr class="row">
+                {% if x%2 == 0  %}
+                    {% for x in range(0,8) %}
+                        {% if x%2 == 0  %}
+                            <td class="box red"></td>
+                        {% else %}
+                            <td class="box black"></td>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for x in range(1,9) %}
+                        {% if x%2 == 0  %}
+                            <td class="box red"></td>
+                        {% else %}
+                            <td class="box black"></td>
+                        {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
