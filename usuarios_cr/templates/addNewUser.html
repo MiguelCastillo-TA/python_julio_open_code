@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h1>Add a New User</h1>
+    <a href="/users">Home</a>
+    <form action="/users/new" method="post">
+        <label for="first_name">
+            First Name
+        </label>
+        <input type="text" name="first_name" id="first_name">
+        <label for="last_name">
+            Last Name
+        </label>
+        <input type="text" name="last_name" id="last_name">
+        <label for="email">
+            Email
+        </label>
+        <input type="email" name="email" id="email">
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

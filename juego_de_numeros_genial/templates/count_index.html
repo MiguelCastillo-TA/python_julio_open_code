@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Count</h1>
+    <p>Number of counts {{session['counter']}}</p>
+    <form action="/destroy" method="get">
+        <button>restart counter</button>
+    </form>
+    <form action="/count_by_two" method="get">
+        <button>count by 2</button>
+    </form>
+    <form action="/count_by" method="POST">
+        <input type="number" name="count" id="">
+        <button>add</button>
+    </form>
+
+    <h2>Number of visits</h2>
+    <p>you have visited this page: {{session['visits']}}</p>
+</body>
+</html>

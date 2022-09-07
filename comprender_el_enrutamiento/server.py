@@ -5,6 +5,9 @@ app = Flask(__name__)
 def home():
     return "Hola Mundo!"
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
 @app.route('/say/<name>')
 def saludo(name):
     return f"Hola {name}!"
@@ -32,6 +35,3 @@ def play():
 @app.route('/<path:path>')
 def catch_all(path):
     return "¡Lo siento! No hay respuesta. Inténtalo otra vez."
-
-if __name__ == "__main__":
-    app.run(debug=True)

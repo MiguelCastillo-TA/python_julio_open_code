@@ -37,5 +37,34 @@ def restart_game():
     session.clear()
     return redirect('/')
 
+
+@app.route('/count')
+def count_index():
+    if 'counter' in session and 'visits' in session:
+        session['visits'] += 1
+        session['counter'] = session['counter'] + 1
+    else:
+        session['visits'] = 1
+        session['counter'] = 1
+
+    return render_template('count_index.html')
+
+
+@app.route('/destroy', methods=['GET', 'POST'])
+def destroy_counter():
+    session.clear()
+    return redirect('/count')
+
+@app.route('/count_by_two', methods=['GET'])
+def count_by_two():
+    session['counter'] += 2
+    return render_template('count_index.html')
+
+@app.route('/count_by', methods=['POST'])
+def count_by_num():
+    num = request.form['count']
+    session['counter'] += int(num)
+    return render_template('count_index.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
