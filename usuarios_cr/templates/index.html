@@ -32,6 +32,9 @@
                 <th>
                     Updated At
                 </th>
+                <th>
+                    Actions
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +46,11 @@
                     <td>{{user.email}}</td>
                     <td>{{user.created_at}}</td>
                     <td>{{user.updated_at}}</td>
+                    <td>
+                        <a href="/users/{{user.id}}">View</a>
+                        <a href="/users/{{user.id}}/edit">Edit</a>
+                        <a href="/users/{{user.id}}/delete">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
