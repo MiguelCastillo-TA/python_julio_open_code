@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block titulo %}Wall{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            Messages for you
+            <p>You have received {{messages_received_count}} messages</p>
+            {% for message in all_messages %}
+                <p>{{message.usuario_sent_nombre}}</p>
+                <p>{{message.message}}</p>
+            {% endfor %}
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <h2>Send a message</h2>
+            <p>You have sent {{ message_sent_count}} messages so far</p>
+            {% for user in all_users %}
+                {% if user.id != session['usuario_id'] %}
+                    <p>{{user.nombre}}</p>
+                    <form action="/new/message" method="POST">
+                        <input type="hidden" name="usuario_received_id" value="{{user.id}}">
+                        <input type="text" name="message">
+                        <button>send</button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

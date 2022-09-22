@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block titulo %}Página Principal{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <h1>Bienvenidos al {{sistema}} {{session.usuario}}</h1>
+</div>
+
+
+{% endblock %}
