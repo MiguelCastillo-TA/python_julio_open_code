@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Author Show
+{% endblock %}
+
+{% block content %}
+<a href="/authors">Home</a>
+<div>
+    <h2>{{author.name}} Favories</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th># of Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for favorite_book in author.favorites %}
+                <tr>
+                    <td>
+                        {{favorite_book.title}}
+                    </td>
+                    <td>
+                        {{favorite_book.num_of_pages}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Add Authors Favorite</h2>
+</div>
+{% endblock %}
