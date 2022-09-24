@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Book Show
+{% endblock %}
+
+{% block content %}
+<a href="/authors">Home</a>
+<div>
+    <h2>{{book.name}}</h2>
+    <p>Favorite By</p>
+    <ul>
+        {% for author in book.authors %}
+            <li>
+                {{author.name}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<form action="/add_new_author_favorites" method="post">
+    <label for="">Author</label>
+    <input type="hidden" name="book_id" value="{{book.id}}">
+    <select name="author_id" id="">
+        {% for author in all_authors %}
+            <option value="{{author.id}}">
+                {{author.name}}
+            </option>
+        {% endfor %}
+    </select>
+    <button>add author</button>
+</form>
+
+{% endblock %}

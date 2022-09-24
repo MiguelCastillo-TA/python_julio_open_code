@@ -1,6 +1,7 @@
 from libros_app.config.mysqlconnection import connectToMySQL
 from libros_app.models.book import Book
 
+
 class Author:
     def __init__(self, data):
         self.id = data['id']
@@ -32,7 +33,7 @@ class Author:
     def get_author_favorite_books(cls, data):
         query = "SELECT * FROM authors JOIN favorites ON favorites.authors_id = authors.id JOIN books ON favorites.books_id = books.id WHERE authors.id = %(id)s;"
         results = connectToMySQL('libros').query_db(query, data)
-
+        print(results)
         author_data = {
                 'id': results[0]['id'],
                 'name': results[0]['name'],
