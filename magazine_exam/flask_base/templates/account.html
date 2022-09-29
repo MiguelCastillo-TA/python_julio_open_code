@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block titulo %}Subscriptions{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <h2>Update User</h2>
+    <form class="d-flex flex-column" action="/account/update" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{user.name}}" required>
+        <label for="last_name">Last_name:</label>
+        <input type="text" name="last_name" value="{{user.last_name}}" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{user.email}}" required>
+        <button>Update</button>
+    </form>
+    <h2>User's Magazine</h2>
+    <ul class="list-group">
+        {% for magazine in all_magazines %}
+            <li class="list-group-item">
+                <p>
+                    {{magazine.title}}
+                </p>
+                <a href="/delete/magazine/{{magazine.id}}">delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/new">add magazine</a>
+    <a href="/user/account">account</a>
+</div>
+
+
+{% endblock %}

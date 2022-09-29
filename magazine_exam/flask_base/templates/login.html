@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block titulo %}Login{% endblock %}
+{% block contenido %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+
+            <h1>Registro de Usuario</h1>
+            <hr>
+
+            <form action="/procesar_registro" method="post">
+                <div class="mb-3">
+                    <label for="nombre_registro" class="form-label">Nombre</label>
+                    <input type="text" name="name" class="form-control" id="nombre_registro"  placeholder="Ejemplo: Francisco">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido_registro" class="form-label">Apellido</label>
+                    <input type="text" name="last_name" class="form-control" id="apellido_registro"  placeholder="Ejemplo: Boisier">
+                </div>
+                <div class="mb-3">
+                    <label for="email_registro" class="form-label">Correo Electrónico</label>
+                    <input type="email" name="email" class="form-control" id="email_registro" aria-describedby="emailHelp" placeholder="Ejemplo: nombre@dominio.com">
+                    <div id="emailHelp" class="form-text">No compartas tu correo con nadie.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password_registro" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="password_registro">
+                </div>
+                <div class="mb-3">
+                    <label for="cpassword_registro" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" name="cpassword" class="form-control" id="cpassword_registro">
+                </div>
+                <button type="submit" class="btn btn-primary">Crear Usuario</button>
+            </form>
+
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+
+            <h1>Formulario de Login</h1>
+            <hr>
+
+            <form action="/procesar_login" method="post">
+                <div class="mb-3">
+                    <label for="identificacion" class="form-label">Correo Electrónico</label>
+                    <input type="text" name="identificacion" class="form-control" id="identificacion" aria-describedby="identificacionHelp" placeholder="Ejemplo: nombre@dominio.com">
+                    <div id="identificacionHelp" class="form-text">No compartas tu correo con nadie.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-success">Ingresar al Sistema</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

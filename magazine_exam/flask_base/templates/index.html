@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Página Principal{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <h1>Welcome {{session.usuario}}</h1>
+    <a href="/new">add magazine</a>
+    <a href="/user/account">account</a>
+    <h2>Magazines</h2>
+    <ul class="list-group">
+        {% for magazine in all_magazines %}
+            <li class="list-group-item">
+                <a href="/show/{{magazine.id}}">
+                    {{magazine.title}}
+                </a>
+                added by {{magazine.user_name}}
+            </li>
+
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

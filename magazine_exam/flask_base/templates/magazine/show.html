@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}Subscriptions{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <h1>{{magazine.title}}</h1>
+    <p>Added by: {{magazine.user_name}}</p>
+    <p>Description:</p>
+    <p>{{magazine.description}}</p>
+    <a href="/new">add magazine</a>
+    <a href="/user/account">account</a>
+</div>
+
+
+{% endblock %}

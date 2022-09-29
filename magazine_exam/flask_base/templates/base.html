@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %} - Proyecto BASE</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/toastr.min.css') }}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    
+    {% block contenido %}
+    {% endblock %}
+    
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.6.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+        }
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    toastr.{{category}}('{{ message }}', 'Mensaje de Sistema');
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </script>
+
+    {% block librerias %}
+    {% endblock %}
+</body>
+
+</html>
